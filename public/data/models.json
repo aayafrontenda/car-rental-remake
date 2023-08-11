@@ -1,0 +1,76 @@
+{
+  "data": [
+    {
+      "model": "Audi",
+      "rentName": "Audi A1 S-Line",
+      "mark": "A1",
+      "year": 2012,
+      "doors": "4/5",
+      "AC": true,
+      "transmission": "Manual",
+      "fuel": "Gasoline",
+      "price": 45,
+      "src": "/assets/models/audi.jpg"
+    },
+    {
+      "model": "Golf 6",
+      "rentName": "VW Golf 6",
+      "mark": "Volkswagen",
+      "year": 2008,
+      "doors": "4/5",
+      "AC": true,
+      "transmission": "Manual",
+      "fuel": "Diesel",
+      "price": 37,
+      "src": "/assets/models/vw-golf.jpg"
+    },
+    {
+      "model": "Camry",
+      "rentName": "Toyota Camry",
+      "mark": "Toyota",
+      "year": 2006,
+      "doors": "4/5",
+      "AC": true,
+      "transmission": "Automatic",
+      "fuel": "Hybrid",
+      "price": 30,
+      "src": "/assets/models/toyota-camry.jpg"
+    },
+    {
+      "model": "320",
+      "rentName": "BMW 320 ModernLine",
+      "mark": "BMW",
+      "year": 2012,
+      "doors": "4/5",
+      "AC": true,
+      "transmission": "Manual",
+      "fuel": "Diesel",
+      "price": 35,
+      "src": "/assets/models/bmw-320.jpg"
+    },
+    {
+      "model": "Benz GLK",
+      "rentName": "Mercedez-Benz GLK",
+      "mark": "Mercedes",
+      "year": 2006,
+      "doors": "4/5",
+      "AC": true,
+      "transmission": "Manual",
+      "fuel": "Diesel",
+      "price": 50,
+      "src": "/assets/models/mercedes-benz.jpg"
+    },
+    {
+      "model": "Passat CC",
+      "rentName": "VW Passat CC",
+      "mark": "Volkswagen",
+      "year": 2008,
+      "doors": "4/5",
+      "AC": true,
+      "transmission": "Automatic",
+      "fuel": "Gasoline",
+      "price": 25,
+      "src": "/assets/models/vw-passat.jpg"
+    }
+  ]
+}
