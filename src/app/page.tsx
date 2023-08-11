@@ -51,7 +51,7 @@ export default function Home() {
       });
     signToScrollEvents();
 
-    window.addEventListener("scroll", (e: any) => onPageScroll());
+    window.addEventListener("scroll", (e: Event) => onPageScroll());
     return () => {
       window.removeEventListener("scroll", onPageScroll);
     };

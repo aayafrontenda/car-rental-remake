@@ -89,7 +89,7 @@ const slides = [
 
 const Slider = () => {
   const [slide, setSlide]: [number, Function] = useState(0);
-  const reviewCardRef: any = useRef();
+  const reviewCardRef = useRef<HTMLInputElement>(null);
   useEffect(() => {
     reviewCardRef?.current?.classList.remove("fade-in");
     reviewCardRef?.current?.offsetWidth;

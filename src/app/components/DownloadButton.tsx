@@ -1,5 +1,11 @@
 import { useState } from "react";
-const stores: any = {
+const stores: {
+  [key: string]: {
+    viewBox: string;
+    pathD: string;
+    link: string;
+  };
+} = {
   "App Store": {
     viewBox: "0 0 384 512",
     pathD:
@@ -14,7 +20,11 @@ const stores: any = {
   },
 };
 
-export default function DownloadButton({ store }: { store: string }) {
+export default function DownloadButton({
+  store,
+}: {
+  store: "Google Play" | "App Store";
+}) {
   const [hover, setHover] = useState(false);
   return (
     <a target="_blank" href={stores[store].link} rel="noopener noreferrer">
