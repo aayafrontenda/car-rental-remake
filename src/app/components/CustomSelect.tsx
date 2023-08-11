@@ -1,31 +1,34 @@
 "use client";
 
-import { useRef, useState, useId } from "react";
+import { useRef, useState, useId, useEffect } from "react";
 import ReactDOM from "react-dom";
 import { receiveMessageOnPort } from "worker_threads";
 
 function SelectModal({ coords, id, values, handleOptionClick }: any) {
   //to create a portal, use the createPortal function:
   const optionId = useId();
-  return ReactDOM.createPortal(
-    <div
-      className={`modal absolute mt-3 -ml-4 mb-0`}
-      style={{ width: coords.width }}
-    >
-      <ul className="bg-white ">
-        {values.map((val: string, index: number) => (
-          <li
-            key={`${optionId}-${index}`}
-            onClick={handleOptionClick}
-            className="py-2 px-4 outline-noned hover:bg-orange-500 hover:text-white cursor-pointer w-full"
-          >
-            {val}
-          </li>
-        ))}
-      </ul>
-    </div>,
-    document.getElementById(id) as Element
-  );
+  if (typeof window === "object") {
+    return ReactDOM.createPortal(
+      <div
+        className={`modal absolute mt-3 -ml-4 mb-0`}
+        style={{ width: coords.width }}
+      >
+        <ul className="bg-white ">
+          {values.map((val: string, index: number) => (
+            <li
+              key={`${optionId}-${index}`}
+              onClick={handleOptionClick}
+              className="py-2 px-4 outline-noned hover:bg-orange-500 hover:text-white cursor-pointer w-full"
+            >
+              {val}
+            </li>
+          ))}
+        </ul>
+      </div>,
+      document.getElementById(id) as Element
+    );
+  }
+  return null;
 }
 
 interface CustomSelectProps {
@@ -44,16 +47,18 @@ export default function CustomSelect({
   const [status, setStatus] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState(defaultValue);
-  document.body.addEventListener("click", (e: any) => {
-    if (
-      modalRef?.current?.innerHTML
-        .toString()
-        .toString()
-        .includes(!e?.target?.innerHTML)
-    ) {
-      setIsOpen(false);
-    }
-  });
+  useEffect(() => {
+    document.body.addEventListener("click", (e: any) => {
+      if (
+        modalRef?.current?.innerHTML
+          .toString()
+          .toString()
+          .includes(!e?.target?.innerHTML)
+      ) {
+        setIsOpen(false);
+      }
+    });
+  }, []);
 
   const manageClick = (e: any) => {
     const rect = e?.target?.getBoundingClientRect();
