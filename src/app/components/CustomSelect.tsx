@@ -12,7 +12,7 @@ function SelectModal({
   width: number;
   id: string;
   values: string[];
-  handleOptionClick: MouseEventHandler<HTMLElement>;
+  handleOptionClick: MouseEventHandler;
 }) {
   //to create a portal, use the createPortal function:
   const optionId = useId();
@@ -75,7 +75,7 @@ export default function CustomSelect({
     };
   }, []);
 
-  const manageClick = (e: MouseEvent) => {
+  const manageClick = (e: React.MouseEvent<HTMLDivElement>) => {
     const target = e.target as Element;
     const rect = target.getBoundingClientRect();
     const parentRect = target.parentElement?.getBoundingClientRect();
@@ -84,7 +84,8 @@ export default function CustomSelect({
     setIsOpen((prev) => !prev);
   };
 
-  const handleOptionClick = (e: MouseEvent) => {
+  const handleOptionClick = (e: React.MouseEvent<HTMLElement>) => {
+    if (!(e.target instanceof HTMLElement)) return;
     setSelected((e?.target as Element).innerHTML);
     setIsOpen(false);
   };
@@ -93,7 +94,7 @@ export default function CustomSelect({
     <div className="bg-white" ref={modalRef}>
       <div
         className="py-2 px-4 outline-none border-2 border-grey-300 rounded-md cursor-pointer w-full"
-        onClick={(e) => manageClick(e)}
+        onClick={manageClick}
         id={id}
       >
         <span
