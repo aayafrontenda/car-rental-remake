@@ -63,16 +63,18 @@
 }
 
 .card {
-  height: 3rem;
+  height: 3em;
   transform-style: preserve-3d;
   transition: 200ms;
   cursor: pointer;
   transform: perspective(1000px) rotateY(var(--rotate-y, 0)) translateY(var(--translate-y, 0));
 }
 
+/*
 .card:hover {
   --translate-y: -5px;
 }
+*/
 
 .flip {
   --rotate-y: 180deg;

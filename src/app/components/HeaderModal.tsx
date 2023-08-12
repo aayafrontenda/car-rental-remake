@@ -32,7 +32,7 @@ export default function HeaderModal({
           <Link href="/about">About</Link>
         </li>
         <li className="py-2 px-4 outline-none text-4xl hover:text-orange-500 cursor-pointer w-full">
-          <Link href="/models">Models</Link>
+          <Link href="/vehicle-models">Models</Link>
         </li>
         <li className="py-2 px-4 outline-none text-4xl hover:text-orange-500 cursor-pointer w-full">
           <Link href="/testimonials">Testimonials</Link>

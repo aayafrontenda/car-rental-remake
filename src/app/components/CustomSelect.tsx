@@ -2,6 +2,7 @@
 
 import { useRef, useState, useId, useEffect, MouseEventHandler } from "react";
 import ReactDOM from "react-dom";
+import { CustomSelectProps } from "@/Types";
 
 function SelectModal({
   width,
@@ -38,12 +39,6 @@ function SelectModal({
     );
   }
   return null;
-}
-
-interface CustomSelectProps {
-  id: string;
-  defaultValue: string;
-  values: string[];
 }
 
 export default function CustomSelect({

@@ -10,7 +10,8 @@
       "transmission": "Manual",
       "fuel": "Gasoline",
       "price": 45,
-      "src": "/assets/models/audi.jpg"
+      "src": "/assets/models/audi.jpg",
+      "rating": 4
     },
     {
       "model": "Golf 6",
@@ -22,7 +23,8 @@
       "transmission": "Manual",
       "fuel": "Diesel",
       "price": 37,
-      "src": "/assets/models/vw-golf.jpg"
+      "src": "/assets/models/vw-golf.jpg",
+      "rating": 5
     },
     {
       "model": "Camry",
@@ -34,7 +36,8 @@
       "transmission": "Automatic",
       "fuel": "Hybrid",
       "price": 30,
-      "src": "/assets/models/toyota-camry.jpg"
+      "src": "/assets/models/toyota-camry.jpg",
+      "rating": 3
     },
     {
       "model": "320",
@@ -46,11 +49,12 @@
       "transmission": "Manual",
       "fuel": "Diesel",
       "price": 35,
-      "src": "/assets/models/bmw-320.jpg"
+      "src": "/assets/models/bmw-320.jpg",
+      "rating": 4
     },
     {
       "model": "Benz GLK",
-      "rentName": "Mercedez-Benz GLK",
+      "rentName": "Mercedes-Benz GLK",
       "mark": "Mercedes",
       "year": 2006,
       "doors": "4/5",
@@ -58,7 +62,8 @@
       "transmission": "Manual",
       "fuel": "Diesel",
       "price": 50,
-      "src": "/assets/models/mercedes-benz.jpg"
+      "src": "/assets/models/mercedes-benz.jpg",
+      "rating": 5
     },
     {
       "model": "Passat CC",
@@ -70,7 +75,8 @@
       "transmission": "Automatic",
       "fuel": "Gasoline",
       "price": 25,
-      "src": "/assets/models/vw-passat.jpg"
+      "src": "/assets/models/vw-passat.jpg",
+      "rating": 4
     }
   ]
 }

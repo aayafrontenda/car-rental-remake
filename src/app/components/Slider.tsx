@@ -1,9 +1,11 @@
+"use client";
 import { useState, useId, useEffect, useRef } from "react";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { faQuoteRight } from "@fortawesome/free-solid-svg-icons";
 import Flashcard from "./Flashcard";
+import StarRating from "./StarRating";
 const slides = [
   [
     {
@@ -115,7 +117,7 @@ const Slider = () => {
         {slides[slide].map((s, index) => (
           <div
             key={`${id}-${index}`}
-            className="py-16 px-4 md:px-12 flex flex-col bg-white w-full lg:w-[40%] rounded-sm shadow-xl mt-4"
+            className="py-16 px-4 md:px-12 flex flex-col bg-white w-full xl:w-[40%] rounded-sm shadow-xl mt-4"
           >
             <span className="text-2xl font-medium leading-9 tracking-wide">
               &quot;{s.review}&quot;
@@ -129,12 +131,32 @@ const Slider = () => {
                 className="mr-1"
               />
               <span>
-                <h4 className="font-bold tracking-normal text-xl">
+                <h4 className="font-bold tracking-normal text-xs sm:text-xl">
                   {s.author}
                 </h4>
-                <p className="text-lg">{s.city}</p>
+                <p className="text-xs sm:text-lg">{s.city}</p>
               </span>
-              <Flashcard rating={s.rating} />
+              <div className="ml-auto">
+                <Flashcard
+                  front={
+                    <FontAwesomeIcon
+                      icon={faQuoteRight}
+                      className="text-6xl text-orange-500"
+                    />
+                  }
+                  back={
+                    <div className="mt-8">
+                      <StarRating
+                        flip={true}
+                        rating={s.rating}
+                        activeColor="text-orange-500"
+                        inactiveColor="text-gray-500"
+                        size="text-xl"
+                      />
+                    </div>
+                  }
+                />
+              </div>
             </div>
           </div>
         ))}

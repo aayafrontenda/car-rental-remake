@@ -344,7 +344,7 @@ export default function Home() {
         </div>
       </section>
       <section
-        className="flex flex-col items-center text-center gap-2 py-12 px-4 md:px-24 w-full bg-[#F8F8F8]"
+        className="flex flex-col items-center text-center gap-2 py-12 px-12 lg:px-4 xl:px-24 w-full bg-[#F8F8F8]"
         id="rewiews"
       >
         <h4 className="font-bold text-2xl">Reviewed by People</h4>

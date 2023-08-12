@@ -31,31 +31,31 @@ export default function Header() {
         <div className="hidden lg:block nav_links">
           <ul className="flex gap-2 xl:gap-6 font-bold text-sm xl:text-xl">
             <li className="cursor-pointer hover:text-orange-500 transition-all duration-300">
-              Home
+              <Link href="/">Home</Link>
             </li>
             <li className="cursor-pointer hover:text-orange-500 transition-all duration-300">
-              About
+              <Link href="/about">About</Link>
             </li>
             <li className="cursor-pointer hover:text-orange-500 transition-all duration-300">
-              Vehicle Models
+              <Link href="/vehicle-models">Vehicle Models</Link>
             </li>
             <li className="cursor-pointer hover:text-orange-500 transition-all duration-300">
-              Testimoneals
+              <Link href="/testimonials">Testimonials</Link>
             </li>
             <li className="cursor-pointer hover:text-orange-500 transition-all duration-300">
-              Our Team
+              <Link href="/team">Our Team</Link>
             </li>
             <li className="cursor-pointer hover:text-orange-500 transition-all duration-300">
-              Contact
+              <Link href="/contact">Contact</Link>
             </li>
           </ul>
         </div>
         <div className="hidden lg:block nav_buttons">
           <button className="font-bold mx-6 cursor-pointer hover:text-orange-500 transition-all duration-300">
-            Sign In
+            <Link href="/sign-in">Sign In</Link>
           </button>
           <button className="bg-orange-500 py-2 px-6 text-white font-semibold rounded-sm hover:bg-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl">
-            Sign Up
+            <Link href="sign-up">Sign Up</Link>
           </button>
         </div>
         <div
