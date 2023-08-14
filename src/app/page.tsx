@@ -172,7 +172,7 @@ export default function Home() {
               </label>
               <input
                 type="date"
-                className="placeholder-grey-200 py-2 px-4 outline-none border-2 border-grey-300 rounded-md"
+                className="placeholder-grey-200 w-full py-2 px-4 outline-none border-2 border-grey-300 rounded-md"
               />
             </div>
             <div className="flex flex-col justify-between gap-3 w-full self-end">
@@ -185,7 +185,7 @@ export default function Home() {
               </label>
               <input
                 type="date"
-                className="placeholder-grey-200 py-2 px-4 outline-none border-2 border-grey-300 rounded-md"
+                className="placeholder-grey-200 w-full py-2 px-4 outline-none border-2 border-grey-300 rounded-md"
               />
             </div>
             <div className="flex flex-col justify-between gap-3 w-full self-end">
