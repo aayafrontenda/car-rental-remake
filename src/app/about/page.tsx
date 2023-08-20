@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import BlackContactContainer from "../components/BlackContactContainer";
 
 export default function About() {
   return (
@@ -152,6 +153,7 @@ export default function About() {
           </div>
         </div>
       </section>
+      <BlackContactContainer />
     </div>
   );
 }

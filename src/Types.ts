@@ -1,3 +1,5 @@
+import { LegacyRef } from "react";
+
 export interface Model {
   model: string;
   src: string;
@@ -16,6 +18,7 @@ export interface CustomSelectProps {
   id: string;
   defaultValue: string;
   values: string[];
+  ref: LegacyRef<HTMLDivElement>;
 }
 
 export interface Member {

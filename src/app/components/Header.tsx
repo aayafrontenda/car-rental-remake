@@ -1,8 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { MouseEventHandler, useEffect, useState } from "react";
-import ReactDOM from "react-dom";
+import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";

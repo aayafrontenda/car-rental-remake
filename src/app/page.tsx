@@ -1,16 +1,16 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { Model } from "@/Types";
 import InfoDrop from "./components/InfoDrop";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import {
   scrollToBooking,
   signToScrollEvents,
   scrollToTop,
 } from "./helpers/scrollHelpers";
-import { Element } from "react-scroll";
 import "@fortawesome/fontawesome-svg-core/styles.css";
-import CustomSelect from "./components/CustomSelect";
+import BookCar from "./components/BookCar";
 
 import { config } from "@fortawesome/fontawesome-svg-core";
 
@@ -19,20 +19,42 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircleCheck,
   faArrowAltCircleRight,
-  faCar,
-  faLocationDot,
-  faCalendarDays,
   faChevronUp,
+  faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 
 import { useEffect, useState } from "react";
 import CarPicker from "./components/CarPicker";
 import Slider from "./components/Slider";
 import DownloadButton from "./components/DownloadButton";
+import ReactDOM from "react-dom";
 
 config.autoAddCss = false;
 
+function BookModal({
+  setModalOpen,
+}: {
+  setModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}) {
+  if (typeof window === "object") {
+    return ReactDOM.createPortal(
+      <div
+        id="defaultModal"
+        aria-hidden="true"
+        className="fixed top-0 left-0 right-0 z-50 flex justify-center w-full p-4 h-full overflow-x-hidden overflow-y-auto md:inset-0 bg-gray-500 bg-opacity-20"
+      >
+        <div className="relative bg-white w-1/2 h-full rounded-lg shadow dark:bg-gray-700">
+          <FontAwesomeIcon icon={faXmark} onClick={() => setModalOpen(false)} />
+        </div>
+      </div>,
+      document.body
+    );
+  }
+  return null;
+}
+
 export default function Home() {
+  const [modalOpen, setModalOpen] = useState(false);
   const [models, setModels] = useState([]);
   const [fastScrollVisible, setFastScrollVisible] = useState(false);
 
@@ -57,8 +79,13 @@ export default function Home() {
     };
   }, []);
 
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
-    <div className="flex flex-col justify-center items-center w-full">
+    <div className="flex flex-col justify-center relative items-center w-full overflow-x-hidden">
+      {modalOpen && <BookModal setModalOpen={setModalOpen} />}
       <section
         className="py-12 px-4 md:px-24 flex w-full justify-center"
         id="home"
@@ -108,95 +135,9 @@ export default function Home() {
           />
         </div>
       </section>
+      <BookCar models={models} setModalOpen={setModalOpen} />
       <section
-        className="py-12 px-4 md:px-24 w-full flex justify-center"
-        id="booking"
-      >
-        <Element
-          name="bookingForScroll"
-          className="flex p-12 container flex-col gap-6 shadow-xl bg-white bg-[url('/assets/book-bg-shape.png')]"
-        >
-          <h1 className="text-3xl font-extrabold">Book a car</h1>
-          <div className="booking_content text-xl flex-col lg:flex-row flex gap-6 justify-between">
-            <div className="flex flex-col justify-between gap-3 w-full">
-              <label className="font-bold">
-                <FontAwesomeIcon
-                  icon={faCar}
-                  className="text-orange-500 mr-2"
-                />
-                Select Your Car Type <span className="text-orange-500">*</span>
-              </label>
-              <CustomSelect
-                id="car-select"
-                defaultValue="Select Your Car"
-                values={models.map((m: Model) => m.rentName)}
-              />
-            </div>
-            <div className="flex flex-col justify-between gap-3 w-full">
-              <label className="font-bold">
-                <FontAwesomeIcon
-                  icon={faLocationDot}
-                  className="text-orange-500 mr-2"
-                />
-                Pick-up <span className="text-orange-500">*</span>
-              </label>
-              <CustomSelect
-                id="pick-up-select"
-                defaultValue="Select pick-up location"
-                values={["City 1", "City 2", "City 3", "City 4"]}
-              />
-            </div>
-            <div className="flex flex-col justify-between gap-3 w-full">
-              <label className="font-bold">
-                <FontAwesomeIcon
-                  icon={faLocationDot}
-                  className="text-orange-500 mr-2"
-                />
-                Drop-of <span className="text-orange-500">*</span>
-              </label>
-              <CustomSelect
-                id="drop-of-select"
-                defaultValue="Select drop-of location"
-                values={["City 1", "City 2", "City 3", "City 4"]}
-              />
-            </div>
-          </div>
-          <div className="booking_content text-xl flex-col lg:flex-row flex gap-6 justify-between">
-            <div className="flex flex-col justify-between gap-3 w-full">
-              <label className="font-bold">
-                <FontAwesomeIcon
-                  icon={faCalendarDays}
-                  className="text-orange-500 mr-2"
-                />
-                Pick-up <span className="text-orange-500">*</span>
-              </label>
-              <input
-                type="date"
-                className="placeholder-grey-200 w-full py-2 px-4 outline-none border-2 border-grey-300 rounded-md"
-              />
-            </div>
-            <div className="flex flex-col justify-between gap-3 w-full self-end">
-              <label className="font-bold">
-                <FontAwesomeIcon
-                  icon={faCalendarDays}
-                  className="text-orange-500 mr-2"
-                />
-                Drop-of <span className="text-orange-500">*</span>
-              </label>
-              <input
-                type="date"
-                className="placeholder-grey-200 w-full py-2 px-4 outline-none border-2 border-grey-300 rounded-md"
-              />
-            </div>
-            <div className="flex flex-col justify-between gap-3 w-full self-end">
-              <button className="bg-orange-500 py-3 px-9 text-white font-semibold rounded-sm hover:bg-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl">
-                Search
-              </button>
-            </div>
-          </div>
-        </Element>
-      </section>
-      <section
+        data-aos="fade-up"
         className="flex flex-col gap-6 py-12 px-4 md:px-24 items-center bg-gradient-to-b w-full"
         style={{ background: "linear-gradient(180deg,#f8f8f8 20%,#fff 80%)" }}
         id="process-description"
@@ -269,6 +210,7 @@ export default function Home() {
       <section
         className="flex flex-col items-center text-center gap-2 py-12 px-4 md:px-24 w-full bg-[url('/assets/skrrt.png')] bg-no-repeat bg-cover bg-white"
         id="testimonials"
+        data-aos="fade-left"
       >
         <Image
           src="/assets/cars-showoff.png"
@@ -346,6 +288,7 @@ export default function Home() {
       <section
         className="flex flex-col items-center text-center gap-2 py-12 px-12 lg:px-4 xl:px-24 w-full bg-[#F8F8F8]"
         id="rewiews"
+        data-aos="zoom-in"
       >
         <h4 className="font-bold text-2xl">Reviewed by People</h4>
         <h2 className="font-bold text-5xl">Client&apos;s Testimonials</h2>

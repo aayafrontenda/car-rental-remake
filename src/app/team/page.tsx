@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useEffect, useState, useId } from "react";
 import MemberCard from "../components/MemberCard";
 import { Member } from "@/Types";
+import BlackContactContainer from "../components/BlackContactContainer";
 
 export default function Team() {
   const [members, setMembers] = useState([]);
@@ -45,6 +46,7 @@ export default function Team() {
           ))}
         </div>
       </section>
+      <BlackContactContainer />
     </div>
   );
 }

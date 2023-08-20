@@ -1,13 +1,18 @@
 import { Model } from "@/Types";
 import Image from "next/image";
-import { useId } from "react";
+import { useId, useEffect } from "react";
 import Flashcard from "../components/Flashcard";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faCar } from "@fortawesome/free-solid-svg-icons";
 import StarRating from "./StarRating";
 
 export default function VehicleCard({ car }: { car: Model }) {
+  useEffect(() => {
+    Aos.init();
+  }, []);
   const {
     src,
     model,
@@ -23,7 +28,7 @@ export default function VehicleCard({ car }: { car: Model }) {
   } = car;
   const id = useId();
   return (
-    <div className="h-full w-full">
+    <div className="h-full w-full" data-aos="flip-right">
       <div className="w-full flex flex-col justify-center rounded-2xl h-full border-2 border-gray-200 shadow-lg bg-white">
         <Image
           src="/assets/audi.png"

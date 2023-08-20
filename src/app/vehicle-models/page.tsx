@@ -3,6 +3,7 @@ import { Model } from "@/Types";
 import Image from "next/image";
 import { useEffect, useState, useId } from "react";
 import VehicleCard from "../components/VehicleCard";
+import BlackContactContainer from "../components/BlackContactContainer";
 
 export default function VehicleModels() {
   const [models, setModels] = useState([]);
@@ -39,6 +40,7 @@ export default function VehicleModels() {
           ))}
         </div>
       </section>
+      <BlackContactContainer />
     </div>
   );
 }

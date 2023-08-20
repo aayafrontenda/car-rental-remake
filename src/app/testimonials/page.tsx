@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Slider from "../components/Slider";
+import BlackContactContainer from "../components/BlackContactContainer";
 export default function About() {
   return (
     <div className="flex flex-col justify-center items-center w-full">
@@ -31,6 +32,7 @@ export default function About() {
         </p>
         <Slider />
       </section>
+      <BlackContactContainer />
     </div>
   );
 }

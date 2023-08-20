@@ -1,6 +1,8 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { Model } from "@/Types";
 import Image from "next/image";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { scrollToBooking, signToScrollEvents } from "../helpers/scrollHelpers";
 
 export default function CarPicker({ models }: { models: Model[] }) {
@@ -19,13 +21,17 @@ export default function CarPicker({ models }: { models: Model[] }) {
 
   useEffect(() => {
     signToScrollEvents();
+    AOS.init();
   }, []);
 
   const id = useId();
   return (
     <div className="flex justify-center">
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 auto-rows-auto gap-16 bg-white w-full items-center py-4">
-        <div className="flex flex-col justify-self-start mr-auto text-center text-black font-extrabold text-lg gap-2 w-full">
+        <div
+          className="flex flex-col justify-self-start mr-auto text-center text-black font-extrabold text-lg gap-2 w-full"
+          data-aos="fade-left"
+        >
           {models.map((m: Model, index) => (
             <button
               key={`${id}-${index}`}
@@ -36,7 +42,10 @@ export default function CarPicker({ models }: { models: Model[] }) {
             </button>
           ))}
         </div>
-        <div className="flex flex-col text-center text-black font-extrabold text-lg">
+        <div
+          className="flex flex-col text-center text-black font-extrabold text-lg"
+          data-aos="fade-up"
+        >
           <Image
             src={pickedCar?.src}
             width={400}
@@ -44,7 +53,10 @@ export default function CarPicker({ models }: { models: Model[] }) {
             alt="picked car image"
           />
         </div>
-        <div className="flex flex-col text-center ml-auto text-black w-full">
+        <div
+          className="flex flex-col text-center ml-auto text-black w-full"
+          data-aos="fade-right"
+        >
           <div className="bg-orange-500 text-white px-4 py-2 flex items-center m-0 w-full justify-center border-2 border-orange-500">
             <span className="font-bold text-3xl mr-2">${pickedCar.price}</span>
             <span className="text-lg">/ rent per day</span>

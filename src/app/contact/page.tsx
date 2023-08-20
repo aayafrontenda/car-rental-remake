@@ -6,6 +6,7 @@ import {
   faLocationDot,
   faEnvelopeCircleCheck,
 } from "@fortawesome/free-solid-svg-icons";
+import BlackContactContainer from "../components/BlackContactContainer";
 export default function ContactPage() {
   return (
     <div className="flex flex-col justify-center items-center w-full">
@@ -26,7 +27,7 @@ export default function ContactPage() {
         className="py-12 px-8 md:px-24 flex w-full h-full bg-white"
         id="contacts"
       >
-        <div className="flex flex-col w-full md:flex-row justify-center gap-32">
+        <div className="flex flex-col w-full md:flex-row justify-center gap-32 bg-[url('/assets/world.png')] bg-auto bg-no-repeat bg-center">
           <div className="w-full text-center md:text-left md:w-1/3 flex flex-col gap-4">
             <h2 className="text-4xl font-bold">Need aditional information?</h2>
             <p className="text-lg text-gray-500">
@@ -63,6 +64,7 @@ export default function ContactPage() {
                 type="text"
                 className="w-full px-6 py-4 bg-gray-100 rounded-sm mt-2 outline-none"
                 placeholder="John Doe"
+                required
               />
             </div>
             <div>
@@ -73,6 +75,7 @@ export default function ContactPage() {
                 type="email"
                 className="w-full px-6 py-4 bg-gray-100 rounded-sm mt-2 outline-none"
                 placeholder="john-doe@gmail.com"
+                required
               />
             </div>
             <div>
@@ -82,6 +85,7 @@ export default function ContactPage() {
               <textarea
                 className="w-full px-6 py-4 bg-gray-100 rounded-sm mt-2 outline-none h-48"
                 placeholder="Your opinion..."
+                required
               />
             </div>
             <button className="py-4 px-8 bg-orange-500 text-white text-center text-xl font-semibold shadow-lg shadow-orange-400 hover:bg-orange-600 hover:shadow-lg hover:shadow-orange-400">
@@ -91,6 +95,7 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+      <BlackContactContainer />
     </div>
   );
 }

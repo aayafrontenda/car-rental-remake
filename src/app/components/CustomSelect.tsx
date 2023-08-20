@@ -45,6 +45,7 @@ export default function CustomSelect({
   id,
   defaultValue,
   values,
+  ref,
 }: CustomSelectProps) {
   const [width, setWidth] = useState(0);
   const modalRef = useRef<HTMLDivElement>(null);
@@ -91,6 +92,7 @@ export default function CustomSelect({
         className="py-2 px-4 outline-none border-2 border-grey-300 rounded-md cursor-pointer w-full"
         onClick={manageClick}
         id={id}
+        ref={ref}
       >
         <span
           className={
